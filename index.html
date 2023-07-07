@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calzados Grupo7</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <aside>
+            <header>
+                <h1 class="logoPrincipal">Calzados Group 7</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a href="index.html" class="botonMenu botonCategoria active"><i class="bi bi-hand-index-thumb-fill"></i>Todos los productos</a>
+                    </li>
+                    <li>
+                        <a id="" href="productoNuevo.html" class="botonMenu botonCategoria active"><i class="bi bi-hand-index-thumb-fill"></i>Agregar Nuevo Producto</a>
+                    </li>
+                   
+                    <li>
+                        <a class="botonMenu botonCarrito" href="/carrito.html"><i class="bi bi-cart"></i>Carrito </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="textoPie">© 2023 Grupo 7</p>
+            </footer>
+        </aside>
+        <main>
+            <div id="app" class="contenedorProductos">
+                
+                <div class="producto" v-for="elemento in datos">
+                    <img class="productoImagen" :src="elemento.imagen" alt="elemento.nombre">
+                    <div class="productoDetalles">
+                        <h3 class="productoTitulo">Modelo:  {{elemento.nombre}}</h3>
+                        <p class="productoPrecio">Precio: $ {{elemento.precio}}</p>
+                        <p class="ProductoStock">Stock:  {{elemento.stock}} u</p>
+                        
+                        <a id="boton" :href="'editarProducto.html?id='+elemento.id" class="productoEdit" >Editar</a>
+                        <button v-on:click="eliminar(elemento.id)" class="productoEliminar">Eliminar</button>
+
+                    </div>   
+                </div>
+                
+            </div>
+        </main>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+   integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        if(sessionStorage.getItem("login")!=true){
+            const p = document.getElementById("boton")
+            p.style.display="none"
+        }
+    </script>
+</body>
+</html>

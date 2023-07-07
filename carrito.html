@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Carrito</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="css/style.css"> 
+
+</head>
+
+<body>
+    <div class="contenedor">
+        <aside>
+            <header>
+                <h1 style="font-weight: 400;font-size: 1.8rem;font-family:'Rubik', sans-serif;" class="logoPrincipal">Calzados Group 7</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a href="index.html" class="botonMenu botonCategoria active"><i class="bi bi-hand-index-thumb-fill"></i>Todos los productos</a>
+                    </li>
+                    <li>
+                        <a href="productoNuevo.html" class="botonMenu botonCategoria active"><i class="bi bi-hand-index-thumb-fill"></i>Agregar Nuevo Producto</a>
+                    </li>
+                   
+                </ul>
+            </nav>
+            <footer>
+                <p class="textoPie">© 2023 Grupo 7</p>
+            </footer>
+        </aside> 
+        <main>
+            <h1>Carrito<i class="bi bi-cart"></i></h1>
+            <div style="display: grid; margin: 2rem; padding: 1rem; align-items: center;" >
+                <div class="container">
+                    <div id="app" style="display: grid;grid-template-columns: 0.5fr 0.5fr;">
+                        <div style="color:black ; background-color: rgb(247, 184, 194);border-radius: 1rem; width: auto; height:auto;" v-for="elemento of datos" class="card">
+                            <img style="border-radius: 1rem;width: auto;" class="card-img-top" :src="elemento.imagen" :alt="elemento.nombre">
+                            <div style="align-items: center;" class="card-body">
+                                <p style="display: none;" class="card-text" id="">{{elemento.id}}</p>
+                                <p style="font-size: 2vh;" class="card-title">MODELO: {{elemento.nombre}}</p>
+                                <p style="font-size: 2vh;" class="card-text">PRECIO: ${{elemento.precio}}</p>
+                                <p style="font-size: 2vh;" class="card-text">STOCK: {{elemento.stock}} U</p>
+                               
+                                <label style="font-size: 2vh;" for="cantidad">CANTIDAD: </label>
+                                <input style="width: 10%;font-size: 2vh;" type="number" name="cantidad" id="cantidad" v-model="elemento.cantidad">
+                                <button style=" color: white;font-size: 2vh;background-color:rgb(65, 65, 250) ;cursor: pointer; display: flex;align-items: center;gap: 1rem; padding: 0.3rem;font-size: 0.85rem" v-on:click="comprar(elemento)">COMPRAR</button>
+   
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+                </div>   
+
+            </div>
+            
+            
+        </main>
+
+    </div>
+  
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="js/carrito.js"></script>
+
+</body>
+
+</html>
